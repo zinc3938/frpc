@@ -55,15 +55,14 @@ mv ${FILE_NAME}/${FRP_NAME} ${FRP_PATH}
 
 cat >${FRP_PATH}/${FRP_NAME}.ini <<EOF
 [common]
-server_addr = frp.freefrp.net
+server_addr = zincnas.synology.me
 server_port = 7000
-token = freefrp.net
 
 [web1_${RANDOM}]
-type = http
-local_ip = 192.168.1.2
-local_port = 5000
-custom_domains = yourdomain${RANDOM}.com
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 22222
 EOF
 
 cat >/lib/systemd/system/${FRP_NAME}.service <<EOF
